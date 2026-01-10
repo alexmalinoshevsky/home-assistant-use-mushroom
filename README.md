@@ -632,7 +632,7 @@ I run a [Supervised install](https://www.home-assistant.io/getting-started/) wit
   *which uses:*
   - [input_boolean.alarm_clock](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L55)
   - [input_boolean.automatic_temperature](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L49)
-  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L20)
+  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L19)
   - [script.set_high_temperature](https://github.com/basnijholt/home-assistant-config/blob/160be5f914b2dde4a8e8278c3aa03db2ea3210fa/scripts.yaml#L411)
   - [sensor.time](https://github.com/basnijholt/home-assistant-config/blob/1bbf15def312391e65a0645100791d7d294d1265/includes/sensors.yaml#L29)
   - [sensor.half_hour_before_alarm](https://github.com/basnijholt/home-assistant-config/blob/30016556763cd041c2f481e8ca9ff1226f0a50a3/includes/templates.yaml#L439)
@@ -642,7 +642,7 @@ I run a [Supervised install](https://www.home-assistant.io/getting-started/) wit
 
   *which uses:*
   - [input_boolean.automatic_temperature](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L49)
-  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L20)
+  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L19)
   - [script.set_high_temperature](https://github.com/basnijholt/home-assistant-config/blob/160be5f914b2dde4a8e8278c3aa03db2ea3210fa/scripts.yaml#L411)
   - [sensor.no_one_home](https://github.com/basnijholt/home-assistant-config/blob/30016556763cd041c2f481e8ca9ff1226f0a50a3/includes/templates.yaml#L193)
   - [binary_sensor.no_one_home](https://github.com/basnijholt/home-assistant-config/blob/30016556763cd041c2f481e8ca9ff1226f0a50a3/includes/templates.yaml#L193)
@@ -651,7 +651,7 @@ I run a [Supervised install](https://www.home-assistant.io/getting-started/) wit
 
   *which uses:*
   - [input_boolean.automatic_temperature](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L49)
-  - [input_number.temperature_low](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L12)
+  - [input_number.temperature_low](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L12)
   - [script.set_high_temperature](https://github.com/basnijholt/home-assistant-config/blob/160be5f914b2dde4a8e8278c3aa03db2ea3210fa/scripts.yaml#L411)
   - [script.set_low_temperature](https://github.com/basnijholt/home-assistant-config/blob/160be5f914b2dde4a8e8278c3aa03db2ea3210fa/scripts.yaml#L402)
   - [sensor.no_one_home](https://github.com/basnijholt/home-assistant-config/blob/30016556763cd041c2f481e8ca9ff1226f0a50a3/includes/templates.yaml#L193)
@@ -663,7 +663,7 @@ I run a [Supervised install](https://www.home-assistant.io/getting-started/) wit
 ### [Warning when heating on and living room door open](https://github.com/basnijholt/home-assistant-config/blob/ba030441fc94aa950863010f5ad54c4ecaaa691b/automations/climate.yaml#L103)
 
   *which uses:*
-  - [input_number.temperature_low](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L12)
+  - [input_number.temperature_low](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L12)
 
 ### [Set temperature setpoint to 50 °C](https://github.com/basnijholt/home-assistant-config/blob/ba030441fc94aa950863010f5ad54c4ecaaa691b/automations/climate.yaml#L137)
 
@@ -1323,13 +1323,13 @@ to "Opt".
 
   *which uses:*
   - [input_boolean.vacation_mode](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L19)
-  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L20)
+  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L19)
 
 ### [Restore high temperature](https://github.com/basnijholt/home-assistant-config/blob/ba030441fc94aa950863010f5ad54c4ecaaa691b/automations/vacation_mode.yaml#L64)
 
   *which uses:*
   - [input_boolean.vacation_mode](https://github.com/basnijholt/home-assistant-config/blob/3edc9d32263e8f60edc030c5f3ab8a089c469ea1/includes/input_booleans.yaml#L19)
-  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/364858031f698404bdff4dc6acc7a72c2c70961b/includes/input_numbers.yaml#L20)
+  - [input_number.temperature_high](https://github.com/basnijholt/home-assistant-config/blob/7e6643e48793d765fbeabeb228a03ba3db1c0889/includes/input_numbers.yaml#L19)
 
 [^ toc](#automations---table-of-content)
 
