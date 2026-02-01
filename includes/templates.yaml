@@ -17,14 +17,15 @@
 #                           |___/
 
 - binary_sensor:
-    - name: Someone is showering
+    - name: Someone showering
+      unique_id: someone_showering
       state: >
         {% set humidity = states("sensor.humidity_bathroom") | float(0) %}
         {% set treshold = 1.05 * state_attr("sensor.humidity_bathroom_stats", "median") | float(0) %}
         {% set derivative = states("sensor.humidity_bathroom_derivative") | float(0) %}
         {{ humidity > treshold and derivative > 0.25 }}
 
-    - name: Any motion detected
+    - name: Motion detected
       unique_id: motion_detected
       state: >
         {{ is_state("binary_sensor.activity_in_bathroom", "on")
@@ -36,18 +37,20 @@
             or is_state("binary_sensor.activity_in_baby_room", "on")
             or is_state("binary_sensor.activity_in_guest_room", "on") }}
 
-    - name: Any motion detected in last hour
+    - name: Motion detected in last hour
       unique_id: motion_detected_in_last_hour
       state: >
         {{ is_state("binary_sensor.motion_detected", "on") }}
       delay_off: "01:00:00"
 
     - name: Someone in the house in the last hour
+      unique_id: someone_in_the_house_in_last_hour
       state: >
         {{ is_state("binary_sensor.motion_detected_in_last_hour", "on")
             or is_state("group.persons", "home") }}
 
-    - name: Activity in the bathroom
+    - name: Activity in bathroom
+      unique_id: activity_in_bathroom
       state: >
         {{ is_state("binary_sensor.motion_sensor_bathroom", "on")
             or is_state("binary_sensor.motion_sensor_toilet", "on")
@@ -55,11 +58,13 @@
       delay_off: "00:03:00"
 
     - name: Activity in dinner area
+      unique_id: activity_in_dinner_area
       state: >
         {{ is_state("binary_sensor.motion_sensor_dinner_area_occupancy", "on") }}
       delay_off: "00:05:00"
 
-    - name: Activity in the living room
+    - name: Activity in living room
+      unique_id: activity_in_living_room
       state: >
         {{ is_state("binary_sensor.motion_sensor_fireplace_occupancy", "on")
             or is_state("binary_sensor.motion_sensor_dinner_area_occupancy", "on")
@@ -69,38 +74,43 @@
             or is_state("media_player.living_room_xbox", "on") }}
       delay_off: "00:30:00"
 
-    - name: Activity in the kitchen
+    - name: Activity in kitchen
+      unique_id: activity_in_kitchen
       state: >
         {{ is_state("binary_sensor.motion_sensor_kitchen_occupancy", "on") }}
       delay_off: "00:01:00"
 
-    - name: Activity in the utility room
+    - name: Activity in utility room
+      unique_id: activity_in_utility_room
       state: >
         {{ is_state("binary_sensor.motion_sensor_utility_room_occupancy", "on")
             or is_state("binary_sensor.motion_sensor_utility_room_2_occupancy", "on")
             or is_state("binary_sensor.openclose_utility_room_door", "on") }}
       delay_off: "00:01:00"
 
-    - name: Activity in the hall
+    - name: Activity in hall
+      unique_id: activity_in_hall
       state: >
         {{ is_state("binary_sensor.motion_sensor_hall", "on")
             or is_state("binary_sensor.openclose_front_door", "on") }}
       delay_off: "00:01:00"
 
-    - name: Activity in the bedroom
+    - name: Activity in master bedroom
       unique_id: activity_in_master_bedroom
       state: >
         {{ is_state("binary_sensor.motion_sensor_master_bedroom_occupancy", "on")
             or is_state("binary_sensor.vibration", "on") }}
       delay_off: "00:01:00"
 
-    - name: Activity in the baby room
+    - name: Activity in baby room
+      unique_id: activity_in_baby_room
       state: >
         {{ is_state("binary_sensor.motion_sensor_baby_room_occupancy", "on")
             or is_state("binary_sensor.motion_sensor_baby_room_2_occupancy", "on") }}
       delay_off: "00:01:00"
 
-    - name: Activity in the guest room
+    - name: Activity in guest room
+      unique_id: activity_in_guest_room
       state: >
         {{ is_state("binary_sensor.motion_sensor_guest_room_occupancy", "on")
             or is_state("binary_sensor.using_macbook_in_guest_room", "on")
@@ -108,25 +118,28 @@
       delay_off: "00:10:00"
 
     - name: Activity outside front door
+      unique_id: activity_outside_front_door
       state: >
         {{ is_state("binary_sensor.motion_sensor_outside_front_door_occupancy", "on")
             or is_state("binary_sensor.openclose_front_door", "on") }}
       delay_off: "00:01:00"
 
     - name: Activity outside garage
+      unique_id: activity_outside_garage
       state: >
         {{ is_state("binary_sensor.motion_sensor_outside_garage_occupancy", "on")
             or is_state("binary_sensor.openclose_utility_room_door", "on") }}
       delay_off: "00:01:00"
 
     - name: Activity outside house
-      unique_id: activity_outside_front_of_house
+      unique_id: activity_outside_house
       state: >
         {{ is_state("binary_sensor.activity_outside_garage", "on")
           or is_state("binary_sensor.activity_outside_front_door", "on") }}
       delay_off: "01:00:00"
 
-    - name: Activity outside the bedroom
+    - name: Activity outside bedroom
+      unique_id: activity_outside_bedroom
       state: >
         {{ is_state("binary_sensor.activity_in_living_room", "on")
             or is_state("binary_sensor.activity_in_utility_room", "on")
@@ -136,11 +149,13 @@
       delay_off: "00:01:00"
 
     - name: Door to outside open
+      unique_id: door_to_outside_open
       state: >
         {{ is_state("binary_sensor.openclose_utility_room_door", "on")
           or is_state("binary_sensor.openclose_front_door", "on") }}
 
     - name: Washing machine
+      unique_id: washing_machine
       state: >
         {{ states("sensor.washing_machine_power") | float(0) > 3 }}
       delay_off: "00:05:00"
@@ -152,6 +167,7 @@
         {% endif %}
 
     - name: Dishwasher
+      unique_id: dishwasher
       state: >
         {{ states("sensor.dishwasher_watts") | float(0) > 3 }}
       delay_off: "00:03:00"
@@ -163,11 +179,12 @@
         {% endif %}
 
     - name: Worked enough today
+      unique_id: worked_enough_today
       state: >
         {{ states("sensor.time_at_work_today") | float(0) > 8 }}
       icon: mdi:briefcase
 
-    - name: Any light is on
+    - name: Any light on
       unique_id: any_light_on
       state: >
         {% set automatic_lights_on = is_state("light.automatic_lights", "on") %}
@@ -175,7 +192,8 @@
         {% set living_room_lights_on = is_state("light.living_room_lights", "on") %}
         {{ automatic_lights_on or bedroom_lights_on or living_room_lights_on }}
 
-    - name: Anything is on
+    - name: Anything on
+      unique_id: anything_on
       state: >
         {% set light_on = is_state("binary_sensor.any_light_on", "on") %}
         {% set tv_on = is_state("media_player.tv", "on") %}
@@ -184,18 +202,19 @@
         {{ light_on or tv_on or kef_on or kef_lsx_on }}
 
     # XXX: was '("Mon", "Wed", "Sun")'  pre-corona because now we're mostly at home
-    - name: Vacuum day today
+    - name: Vacuum day
       unique_id: vacuum_day
       state: >
         {{ as_timestamp(now()) | timestamp_custom("%a") in ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun") }}
 
-    - name: No one is home
+    - name: No one home
       unique_id: no_one_home
       state: >
         {{ not is_state("person.bas", "home")
             and not is_state("person.marcella", "home") }}
 
     - name: Using MacBook in guest room
+      unique_id: using_macbook_in_guest_room
       state: >
         {{ is_state("sensor.basnijholt_macbook_primary_display_name", "DELL U4021QW")
             and is_state("binary_sensor.basnijholt_macbook_active", "on") }}
